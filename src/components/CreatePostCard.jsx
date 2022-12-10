@@ -8,7 +8,7 @@ import ModalCmp from "./muicomponents/ModalCmp";
 const CreatePostCard = () => {
   return (
     <>
-      <Box sx={{ border: 1, borderRadius: 1, width: "50%", m: 2, p: 2 }}>
+      <Box sx={{ border: 1, borderRadius: "10px", width: "50%", m: 2, p: 2 }}>
         <Box sx={{ display: "flex", alignContent: "center" }}>
           <AvatarsCmp />
           <Box sx={{ mx: 1 }}>
