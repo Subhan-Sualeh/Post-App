@@ -1,5 +1,5 @@
-import Home from "./Screens/Home";
-import "./style.css"
+import Home from "./Screens/Main";
+import "./app.css"
 
 function App() {
   return (

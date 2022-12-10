@@ -1,24 +1,26 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import "../../style.css";
-import AvatarsCmp from "./Avatar";
-import ButtonCmp from "./btnCmp";
+import "../../app.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { add, postSlice } from "../../store/Slices/postSlice";
-
+import { Container, TextField } from "@mui/material";
+import {TiTick} from "react-icons/ti"
+import {AiOutlinePlus} from "react-icons/ai"
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
+  width: 400,
   bgcolor: "background.paper",
   border: "1px solid #000",
   boxShadow: 24,
-  p: 4,
+  borderRadius:"20px" ,
+  p: 2,
 };
 
 export default function ModalCmp() {
@@ -44,22 +46,25 @@ export default function ModalCmp() {
   
   return (
     <div>
-      <Box
-        className="createPostbtn"
-        sx={{ marginTop: 1.5, border: 1, borderRadius: "20px" }}
-      >
-        <Typography
+      <Container sx={{ display: "flex",
+            alignItems:"center" , 
+            justifyContent:"center",
+            m: "20px auto",}}> <Button
           sx={{
-            display: "flex",
-            m: 0.3,
             mx: 2,
             p: 0.5,
+            fontSize:"2rem",
+            background:"white",
+            color:"purple"
+
+
           }}
+          style={{background:"White"}}
           onClick={handleOpen}
         >
-          What's in your mind?
-        </Typography>
-      </Box>
+          <AiOutlinePlus/>
+        </Button></Container>
+     
       <Modal
         open={open}
         onClose={handleClose}
@@ -69,35 +74,32 @@ export default function ModalCmp() {
         <Box component={"form"} onSubmit={addPostHandle} sx={style}>
           <Box>
             <Typography
-              variant="h5"
-              sx={{ textAlign: "center", marginBottom: 2 }}
+              variant="h4"
+              sx={{ textAlign: "center", marginBottom: 2 , color:"purple"}}
             >
               Create Post
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <AvatarsCmp style={{ mx: 1, my: 0.5 }} />
             <Box>
-              <Typography>Talha Asif</Typography>
-              <Typography sx={{ fontSize: "10px" }}>
-                imtalha995@gmail.com
+              <Typography variant="h5" sx={{ color:"purple"}}>User</Typography>
+              <Typography sx={{ fontSize: "13px" }}>
+                Abc123@gmail.com
               </Typography>
             </Box>
           </Box>
-          <textarea
+          <TextField
             name=""
-            id="modal-modal-title"
-            cols="50"
-            rows="7"
-            placeholder="Whats on your Mind"
+            multiline
+            sx={{width : "100%"}}
+            rows={4}
+            placeholder="Post Something"
             onChange={(e) => SetInputValue(e.target.value)}
           />
-          <ButtonCmp
+          <Button
             type={"submit"}
-            text={"post"}
-            variant={"contained"}
-            style={{ width: "100%", my: 2 }}
-          />
+            style={{ width: "100%", my: 2 , color: "white" , background:"purple" ,margin:"5px 0px" , padding:"10px" , fontSize:"1.5rem" }}
+          ><TiTick/></Button>
           {/* <button>hello</button> */}
         </Box>
       </Modal>
